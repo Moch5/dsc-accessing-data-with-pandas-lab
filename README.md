@@ -31,38 +31,39 @@ df = pd.read_csv("dsc-accessing-data-with-pandas-lab-master/WorldCupMatches.csv"
 ## Common Methods and Attributes
 
 Use the correct method to display the **first 7 rows** of the dataset.
-print(df.head(7))
+
 
 ```python
-# Your code here
+print(df.head(7))
 ```
 
 Display the **last 3 rows** of the dataset.
-print(df.tail(3)
+
 
 ```python
-# Your code here
+print(df.tail(3))
 ```
 
 Get a concise summary of the data using `.info()`. 
 
 
 ```python
-# Your code here
+print(df.info())
 ```
 
 Obtain a tuple representing the **number of rows and number of columns**.
 
 
 ```python
-# Your code here
+print(df.shape)
 ```
 
 Use the appropriate attribute to get the **column names**.
 
 
 ```python
-# Your code here
+print(df.columns)
+
 ```
 
 ## Selecting DataFrame Information
