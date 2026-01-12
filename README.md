@@ -21,23 +21,24 @@ Load the file `'WorldCupMatches.csv'` as a DataFrame in pandas.
 # Replace None with appropriate code
 
 # Import pandas using the standard alias
-None
+import pandas as pd
 
 # Load 'WorldCupMatches.csv' as a DataFrame
-df = None
+df = pd.read_csv("dsc-accessing-data-with-pandas-lab-master/WorldCupMatches.csv")
+
 ```
 
 ## Common Methods and Attributes
 
 Use the correct method to display the **first 7 rows** of the dataset.
-
+print(df.head(7))
 
 ```python
 # Your code here
 ```
 
 Display the **last 3 rows** of the dataset.
-
+print(df.tail(3)
 
 ```python
 # Your code here
