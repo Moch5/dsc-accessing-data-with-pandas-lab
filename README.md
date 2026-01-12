@@ -74,14 +74,14 @@ Use the right selection method to display all the information from the 3rd to th
 
 
 ```python
-# Your code here
+print(df.iloc[2:5])
 ```
 
 Now, display the info from **game 5-9** (inclusive), but **only the `"Home Team Name"` and the `"Away Team Name"` columns**.
 
 
 ```python
-# Your code here
+print(df.loc[5:10, ['Home Team Initials', 'Away Team Initials']])
 ```
 
 Next, we'd like the information on all the games played in **Group 3** for the **1950** World Cup.
@@ -94,14 +94,14 @@ Hint: You can combine conditions like this:
 
 
 ```python
-# Your code here
+print(df.loc[(df['Stage'] =='Group 1') & (df['Year'] == 1930)])
 ```
 
 Let's repeat the command above, but this time display **only the attendance column** for the Group 3 games. 
 
 
 ```python
-# Your code here
+print(df.loc[(df['Stage'] =='Group 1'), ['Attendance']])
 ```
 
 Throughout the entire history of the World Cup as recorded in this dataset, **how many home games were played by the Netherlands**?
@@ -110,21 +110,22 @@ Throughout the entire history of the World Cup as recorded in this dataset, **ho
 
 
 ```python
-# Your code here
+print(len(df.loc[df['Home Team Name'] == 'Netherlands']))
 ```
 
 **How many games were played by the Netherlands in total**?
 
 
 ```python
-# Your code here
+print(len(df.loc[(df['Home Team Name'] == 'Netherlands') | (df['Away Team Name'] == 'Netherlands')]))
 ```
 
 Next, let's try and figure out **how many games the USA played in the 2014 World Cup**.
 
 
 ```python
-# Your code here
+usa_matches = (df.loc[((df['Home Team Name'] == 'USA') | df['Away Team Name'] == 'USA') & df['Year'] == 2014])
+# print(len(usa_matches))
 ```
 
 Now, let's try to find out **how many countries participated in the 1986 World Cup**.
@@ -135,7 +136,12 @@ Hint 2: Make sure you don't end up with duplicate country names. Consider using 
 
 
 ```python
-# Your code here
+df2 = df.loc[df['Year'] == 1986, :]
+# print(df2)
+home_countries = df2['Home Team Name']
+away_countries = df2['Away Team Name']
+all_countries = set(home_countries).union(set(away_countries))
+print(len(all_countries))
 ```
 
 ## Changing Values and Creating New Columns
