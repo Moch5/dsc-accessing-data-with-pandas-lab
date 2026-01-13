@@ -150,14 +150,23 @@ In World Cup history, **how many matches had 5 goals or more in total**? Create 
 
 
 ```python
-# Your code here
+#convert goals to int first
+df['Home Team Goals'] = pd.to_numeric(df['Home Team Goals'], errors = 'coerce')
+df['Away Team Goals'] = pd.to_numeric(df['Away Team Goals'], errors = 'coerce')
+df['total_goals'] = df['Home Team Goals'] + df['Away Team Goals']
+five_plus_goals = df[df['total_goals'] >=5]
+print(five_plus_goals)
+print("Number of matches", len(five_plus_goals))
 ```
 
 Now **create a new column `"Half-time Goals"`** in `df` that includes both home and away values.
 
 
 ```python
-# Your code here
+df["Half Time Goals"] = df['Half-time Home Goals'].astype(str) + '-' + df['Half-time Away Goals'].astype(str)
+print(df["Half Time Goals"])
+print(df.columns)
+
 ```
 
 
@@ -182,13 +191,24 @@ Imagine that, for some reason, we simply want Korea listed as one entry, so we w
 ```python
 # Update the 'Home Team Name' and 'Home Team Initials' columns 
 
+df.loc[df['Home Team Name'].str.contains('Korea'), 'Home Team Name'] = 'Korea'
+df.loc[df['Away Team Name'].str.contains('Korea'), 'Away Team Name'] = 'Korea'
+
+print(df.loc[df['Home Team Name'].str.contains('Korea'), 'Home Team Name'])
+print(df.loc[df['Away Team Name'].str.contains('Korea'), 'Away Team Name'])
+
+
+#Initials
+cols = ['Home Team Initials', 'Away Team Initials']
+df[cols] = df[cols].replace({'KOR': 'NSK', 'PRK' : 'NSK'})
+
 ```
 
 Make sure to verify your answer!
 
 
 ```python
-# Check the updated columns
+# print(df[df['Home Team Initials'] == 'NSK'])
 
 ```
 
