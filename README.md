@@ -208,7 +208,7 @@ Make sure to verify your answer!
 
 
 ```python
-# print(df[df['Home Team Initials'] == 'NSK'])
+print(df[df['Home Team Initials'] == 'NSK'])
 
 ```
 
