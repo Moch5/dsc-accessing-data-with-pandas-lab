@@ -94,7 +94,7 @@ Hint: You can combine conditions like this:
 
 
 ```python
-print(df.loc[(df['Stage'] =='Group 1') & (df['Year'] == 1930)])
+print(df.loc[(df['Stage'] =='Group 3') & (df['Year'] == 1950)])
 ```
 
 Let's repeat the command above, but this time display **only the attendance column** for the Group 3 games. 
